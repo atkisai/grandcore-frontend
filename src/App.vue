@@ -24,7 +24,7 @@ export default {
   components:{navbar, home, reg, login, getmoney, users, news},
   data(){
     return{
-      server:'http://127.0.0.1/api',
+      server:'http://127.0.0.1:8000/api',
       state:'home',
       user:'',
     }
