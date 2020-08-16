@@ -1,6 +1,6 @@
 <template>
   <div>
-    <form method="post">
+    <form method="post" @submit.prevent="post">
           <div class="form-group"><label for="id_email"></label><input type="email" name="email" autofocus class="form-control" placeholder="Адрес электронной почты" title="" required id="id_email" v-model="email"></div>
 <div class="form-group"><label for="id_password1"></label><input type="password" name="password1" autocomplete="new-password" class="form-control" placeholder="Пароль" title="" required id="id_password1" v-model="pass"></div>
 <div class="form-group"><label for="id_password2"></label><input type="password" name="password2" autocomplete="new-password" class="form-control" placeholder="Подтверждение пароля" title="" required id="id_password2" v-model="confirm"></div>
@@ -27,6 +27,7 @@
   },
   methods:{
     post(){
+      console.log(this.email)
       if (this.pass==this.confirm){
         if(this.pass.length<8){alert('Должно быть минимум 8 символов в пароле!')}
         else {

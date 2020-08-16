@@ -1,6 +1,6 @@
 <template>
   <div>
-    <form method="post">
+    <form method="post" @submit.prevent="post">
           <div class="form-group"><label for="id_email"></label><input type="email" name="email" autofocus class="form-control" placeholder="Адрес электронной почты" title="" required id="id_email" v-model="email"></div>
 <div class="form-group"><label for="id_password1"></label><input type="password" name="password1" autocomplete="new-password" class="form-control" placeholder="Пароль" title="" required id="id_password1" v-model="pass"></div>
           <div class="form-group">
@@ -26,6 +26,7 @@
   },
   methods:{
     post(){
+      console.log(this.email)
       axios.post(localStorage.getItem("s")+'/login/', {email:this.email, password:this.pass})
         .then((response) => {
         if (response.data!='error') {
